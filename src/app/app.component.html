@@ -6,3 +6,8 @@
     <p>Some content here ...</p>
   </div>
 </bootstrap-panel>
+
+<!-- Added conditional cases with ngIf and ngTemplate-->
+<div *ngIf="courses.length > 0; else noClause">List of courses is full</div>
+
+<ng-template #noClause>List of courses is empty</ng-template>
