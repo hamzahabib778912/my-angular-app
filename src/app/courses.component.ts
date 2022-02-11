@@ -7,6 +7,7 @@ import { CoursesService } from './courses.service';
   //Class binding css -> class.active (CONDITIONAL CASE)
   // Button has both class binding as well as event binding
   // #email is template variable
+  // 2 way binding [(ngModel)] ="email"
   selector: 'courses',
   template: `
     <h2>{{ getTiile() }}</h2>
@@ -26,10 +27,11 @@ import { CoursesService } from './courses.service';
     >
       Save
     </button>
-    <input #email (keyup.enter)="onKeyUp(email.value)" />
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
   `,
 })
 export class CoursesComponent {
+  public email = 'Default@email.com';
   public title: string = 'New Title';
   public isActive = true;
   public courses;
@@ -44,7 +46,7 @@ export class CoursesComponent {
   onSave(event: Event) {
     console.log('Button is clicked', event);
   }
-  onKeyUp(email: string) {
-    console.log('Enter is pressed', email);
+  onKeyUp() {
+    console.log('Enter is pressed', this.email);
   }
 }
