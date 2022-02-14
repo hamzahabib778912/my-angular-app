@@ -7,9 +7,10 @@ import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { FormsModule } from '@angular/forms';
 import { PanelComponent } from './panel/panel.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
-  declarations: [AppComponent, CoursesComponent, CourseComponent, PanelComponent],
+  declarations: [AppComponent, CoursesComponent, CourseComponent, PanelComponent, InputFormatDirective],
   imports: [BrowserModule, FormsModule],
   providers: [CoursesService],
   bootstrap: [AppComponent],
