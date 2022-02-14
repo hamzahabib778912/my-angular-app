@@ -8,5 +8,19 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-angular-app';
-  courses = [];
+  courses: { id: number; name: string }[] = [];
+  viewTab = 'somethingelse';
+
+  onLoadComponents() {
+    this.courses = [
+      {
+        id: 1,
+        name: 'course1',
+      },
+      {
+        id: 2,
+        name: 'course2',
+      },
+    ];
+  }
 }

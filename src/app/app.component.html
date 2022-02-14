@@ -8,6 +8,28 @@
 </bootstrap-panel>
 
 <!-- Added conditional cases with ngIf and ngTemplate-->
+<!-- a replacement of ngif is the hidden attribute, but it will load the div to the DOM, so it's not recommended for larger projects -->
 <div *ngIf="courses.length > 0; else noClause">List of courses is full</div>
 
 <ng-template #noClause>List of courses is empty</ng-template>
+
+<ul class="nav nav-pills">
+  <li class="nav-item" [class.active]="viewTab == 'map'">
+    <a class="nav-link active" (click)="viewTab = 'map'">Map</a>
+  </li>
+  <li class="nav-item" [class.active]="viewTab == 'list'">
+    <a class="nav-link" (click)="viewTab = 'map'">List</a>
+  </li>
+</ul>
+<div [ngSwitch]="viewTab">
+  <div *ngSwitchCase="'map'">Map mode</div>
+  <div *ngSwitchCase="'list'">List mode</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<button (click)="onLoadComponents()">Load Courses</button>
+<ul>
+  <li *ngFor="let course of courses">
+    {{ course.name }}
+  </li>
+</ul>
